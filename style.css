@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+:root {
+    --clr : #0f0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+}
+
+.container .cloud {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    z-index: 100;
+    filter: drop-shadow(0 0 35px var(--clr));
+    animation: animateColor 5s linear infinite;
+}
+
+@keyframes animateColor {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container .cloud h2 {
+    position: absolute;
+    top: 100px;
+    color: #000;
+    font-size: 2em;
+    z-index: 1000;
+    background: var(--clr);
+    padding: 0 10px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    
+}
+
+.container .cloud h2::before {
+    content: '';
+    position: absolute;
+    top: -115px;
+    left: 100%;
+    transform: translateX(-50%);
+    width: 220%;
+    height: 100px;
+    background: var(--clr);
+    border-radius: 100px;
+    z-index: -1;
+}
+
+.container .cloud h2::after {
+    content: '';
+    position: absolute;
+    top: -150px;
+    transform: translateX(-90%);
+    width: 120px;
+    height: 120px;
+    background: var(--clr);
+    border-radius: 50%;
+    z-index: -1;
+    box-shadow: 100px -30px 0 30px var(--clr);
+}
+
+
+.container .cloud .drop {
+    position: absolute;
+    top: 60px;
+    height: 20px;
+    line-height: 20px;
+    color: var(--clr);
+    transform-origin: bottom;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0deg) scaleY(0);
+        transform-origin: top;
+    }
+    10% {
+        transform: translateY(0deg) scaleY(0.25);
+        transform-origin: top;
+    }
+    20% {
+        transform: translateY(0deg) scaleY(1);
+        transform-origin: top;
+    }
+    70% {
+        transform: translateY(300px) scaleY(1);
+        transform-origin: bottom;
+    }
+    80% {
+        transform: translateY(300px) scaleY(1);
+        transform-origin: bottom;
+    }
+    100% {
+        transform: translateY(300px) scaleY(0);
+        transform-origin: bottom;
+        text-shadow: -180px 0 0 var(--clr), 180px 0 0 var(--clr);
+    }
+}
+
+
